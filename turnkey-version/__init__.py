@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # Ad-hoc version detection for a system installed from a TurnKey
 # appliance. This is a transitory package so we can identify the versions
 # in current appliance which were designed before we needed this for
@@ -11,16 +11,16 @@ import sys
 
 def usage(e=None):
     if e:
-        print >> sys.stderr, "error: " + str(e)
+        print("error: " + str(e), file=sys.stderr)
 
-    print >> sys.stderr, "Syntax: %s [rootfs]" % sys.argv[0]
+    print("Syntax: %s [rootfs]" % sys.argv[0], file=sys.stderr)
     sys.exit(1)
 
 class Error(Exception):
     pass
 
 def fatal(s):
-    print >> sys.stderr, "error: " + str(s)
+    print("error: " + str(s), file=sys.stderr)
     sys.exit(1)
 
 def get_turnkey_version(rootfs):
@@ -43,8 +43,8 @@ def main():
         rootfs = args[0]
 
     try:
-        print get_turnkey_version(rootfs)
-    except Error, e:
+        print(get_turnkey_version(rootfs))
+    except Error as e:
         fatal(e)
 
 if __name__=="__main__":
