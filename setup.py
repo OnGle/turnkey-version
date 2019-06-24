@@ -7,7 +7,7 @@ setup(name='turnkey-version',
     description='Turnkey Version Reporting Utility',
     author='Stefan Davis',
     url='https://github.com/turnkeylinux/turnkey-version',
-    packages=['turnkey-version'],
+    scripts=['turnkey-version'],
 )
 
 
